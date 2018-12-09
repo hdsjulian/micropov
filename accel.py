@@ -136,13 +136,13 @@ class Shaker:
 				self.firedPredictedExtremum = True
 		else:
 			if g > self.activeMax.g:
-				print("SOWAS")
+				print("okay")
 				self.activeMax.g = g
 				self.activeMax.micros = self.currentMicros
 				self.activeFramesMax2Min = 0
 				self.min2maxFrames = self.activeFramesMin2Max
 			else:
-				print("BLOED G:")
+				print("weird G:")
 				print(g)
 				print("\n\nActivemax:")
 				print(self.activeMax.g)
@@ -174,6 +174,6 @@ def step(shaker):
 			print(index)
 while True:
 	step(shaker)
-	
+
 
 
