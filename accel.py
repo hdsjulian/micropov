@@ -31,7 +31,7 @@ class Shaker:
 		self.activeFramesMin2Max = 0
 		self.activeFramesMax2Min = 0
 		#searching for Minimum? then True, or Maximum? then False
-		self.searchMin = False
+		self.searchMin = True
 		#only fire events once
 		self.firedPredictedZero = False
 		self.firedPredictedExtremum = False
@@ -140,16 +140,10 @@ class Shaker:
 				self.firedPredictedExtremum = True
 		else:
 			if g > self.activeMax.g:
-				print("okay")
 				self.activeMax.g = g
 				self.activeMax.micros = self.currentMicros
 				self.activeFramesMax2Min = 0
 				self.min2maxFrames = self.activeFramesMin2Max
-			else:
-				print("weird G:")
-				print(g)
-				print("\n\nActivemax:")
-				print(self.activeMax.g)
 			if g < (self.activeMax.g - self.hysteresis):
 				self.lastMax = self.activeMax
 				self.min2maxDelta = self.lastMax.micros = self.lastMin.micros
