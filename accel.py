@@ -16,7 +16,7 @@ class Shaker:
 		i2c=machine.I2C(scl=machine.Pin(5), sda=machine.Pin(4))
 		print(i2c.scan())
 		self.accelerometer=lis3dh.LIS3DH_I2C(i2c, address=24)
-		self.hysteresis = 0.4
+		self.hysteresis = 0
 		self.sensitivity = 5.0
 		#last time it took to go from accel minimum to maximum
 		self.min2maxDelta = 0
@@ -132,6 +132,10 @@ class Shaker:
 					self.diffCount +=1
 				self.activeMax.g = g
 				self.activeMax.micros = self.currentMicros
+			elif (not self.firePredictedZero and (self.currentMicros > self.frameStartTime)):
+				self.frameIndex = self.frames -1
+				isFrameIndexActive = True
+				firedPredictedZero = True
 			elif (not self.firedPredictedExtremum and self.currentMicros >= (self.lastMax.micros + self.max2minDelta)):
 				self.firedPredictedExtremum = True
 		else:
