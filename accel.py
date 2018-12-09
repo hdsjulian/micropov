@@ -132,7 +132,7 @@ class Shaker:
 					self.diffCount +=1
 				self.activeMax.g = g
 				self.activeMax.micros = self.currentMicros
-			elif (not self.firePredictedZero and (self.currentMicros > self.frameStartTime)):
+			elif (not self.firedPredictedZero and (self.currentMicros > self.frameStartTime)):
 				self.frameIndex = self.frames -1
 				isFrameIndexActive = True
 				firedPredictedZero = True
