@@ -58,4 +58,4 @@ def run(threshold):
     	elif envelope < threshold and offbeat == True: 
     	    beatchange = False
         time.sleep(0.001)
-run(45)
+run(500)
