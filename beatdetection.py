@@ -12,8 +12,6 @@ timer = machine.Timer(0)
 
 mid = 2048
 envelope = 0
-if (envelope > envelope2): envelope2 = envelope
-if (envelope < envelope2): envelope2 -= 1
 
 def handleInterrupt(timer):
 	global envelope, mid
